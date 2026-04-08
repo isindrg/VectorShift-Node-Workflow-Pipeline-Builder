@@ -1,0 +1,241 @@
+/* nodes.css */
+
+:root {
+  --primary-color: #6366f1;
+  --primary-dark: #4f46e5;
+  --secondary-color: #8b5cf6;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  --dark-bg: #1f2937;
+  --light-bg: #f3f4f6;
+  --border-color: #e5e7eb;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --node-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Base Node Styles */
+.node {
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  padding: 16px;
+  min-width: 220px;
+  box-shadow: var(--node-shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+.node:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.node.selected {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1), var(--node-shadow);
+}
+
+.node-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  border-bottom: 2px solid var(--light-bg);
+  padding-bottom: 8px;
+}
+
+.node-title {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.node-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.node-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.node-input,
+.node-select,
+.node-textarea {
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  background: white;
+  color: var(--text-primary);
+}
+
+.node-input:focus,
+.node-select:focus,
+.node-textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.node-textarea {
+  resize: vertical;
+  font-family: 'Courier New', monospace;
+  min-height: 60px;
+}
+
+.node-description {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-style: italic;
+  padding: 8px;
+  background: var(--light-bg);
+  border-radius: 6px;
+  text-align: center;
+}
+
+.variables-display {
+  font-size: 11px;
+  color: var(--primary-color);
+  background: rgba(99, 102, 241, 0.1);
+  padding: 6px 8px;
+  border-radius: 4px;
+  margin-top: 4px;
+  border-left: 3px solid var(--primary-color);
+}
+
+/* Specific Node Type Styles */
+.input-node {
+  border-left: 4px solid var(--success-color);
+}
+
+.input-node .node-title {
+  color: var(--success-color);
+}
+
+.output-node {
+  border-left: 4px solid var(--error-color);
+}
+
+.output-node .node-title {
+  color: var(--error-color);
+}
+
+.text-node {
+  border-left: 4px solid var(--primary-color);
+}
+
+.text-node .node-title {
+  color: var(--primary-color);
+}
+
+.llm-node {
+  border-left: 4px solid var(--warning-color);
+  background: linear-gradient(135deg, #fff 0%, rgba(245, 158, 11, 0.05) 100%);
+}
+
+.llm-node .node-title {
+  color: var(--warning-color);
+}
+
+.filter-node {
+  border-left: 4px solid #ec4899;
+}
+
+.filter-node .node-title {
+  color: #ec4899;
+}
+
+.math-node {
+  border-left: 4px solid #06b6d4;
+}
+
+.math-node .node-title {
+  color: #06b6d4;
+}
+
+.concat-node {
+  border-left: 4px solid #8b5cf6;
+}
+
+.concat-node .node-title {
+  color: #8b5cf6;
+}
+
+.http-node {
+  border-left: 4px solid #f97316;
+}
+
+.http-node .node-title {
+  color: #f97316;
+}
+
+.debug-node {
+  border-left: 4px solid #6366f1;
+  background: linear-gradient(135deg, #fff 0%, rgba(99, 102, 241, 0.08) 100%);
+}
+
+.debug-node .node-title {
+  color: #6366f1;
+}
+
+/* Handle styling */
+.react-flow__handle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid var(--primary-color);
+  transition: all 0.2s ease;
+}
+
+.react-flow__handle:hover {
+  width: 14px;
+  height: 14px;
+  border-color: var(--primary-dark);
+  box-shadow: 0 0 8px rgba(99, 102, 241, 0.4);
+}
+
+.react-flow__handle.connectingFrom {
+  background: var(--primary-color);
+}
+
+/* Edge styling */
+.react-flow__edge-path {
+  stroke: var(--primary-color);
+  stroke-width: 2;
+}
+
+.react-flow__edge.animating path {
+  stroke: var(--primary-dark);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .node {
+    min-width: 180px;
+    padding: 12px;
+  }
+
+  .node-input,
+  .node-select,
+  .node-textarea {
+    font-size: 11px;
+    padding: 6px 8px;
+  }
+}

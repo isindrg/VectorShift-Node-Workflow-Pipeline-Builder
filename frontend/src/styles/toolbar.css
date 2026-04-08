@@ -1,0 +1,145 @@
+/* toolbar.css */
+
+.toolbar-container {
+  background: #0f172a;
+  width: 220px;
+  min-width: 220px;
+  height: 100%;
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  border-right: 1px solid #1e293b;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.toolbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 4px 16px;
+  border-bottom: 1px solid #1e293b;
+  margin-bottom: 8px;
+}
+
+.toolbar-logo-icon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.toolbar-logo-text {
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.3px;
+}
+
+.toolbar-logo-sub {
+  font-size: 10px;
+  color: #64748b;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.toolbar-section {
+  margin-bottom: 8px;
+}
+
+.toolbar-section h3 {
+  font-size: 10px;
+  font-weight: 600;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 8px 4px;
+  padding: 0;
+}
+
+.toolbar-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Draggable Node Styling */
+.draggable-node {
+  cursor: grab;
+  width: 100%;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 14px;
+  gap: 10px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 13px;
+  color: #cbd5e1;
+  transition: all 0.2s ease;
+  user-select: none;
+  border: 1px solid #1e293b;
+  background: #1e293b;
+  position: relative;
+  overflow: hidden;
+}
+
+.draggable-node::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  border-radius: 3px 0 0 3px;
+  transition: opacity 0.2s;
+}
+
+.draggable-node:hover {
+  background: #263548;
+  color: white;
+  border-color: #334155;
+  transform: translateX(3px);
+}
+
+.draggable-node:active {
+  cursor: grabbing;
+  opacity: 0.85;
+  transform: scale(0.97);
+}
+
+/* Node type accent colors */
+.customInput::before  { background: #10b981; opacity: 1; }
+.llm::before          { background: #f59e0b; opacity: 1; }
+.customOutput::before { background: #ef4444; opacity: 1; }
+.text::before         { background: #6366f1; opacity: 1; }
+.filter::before       { background: #ec4899; opacity: 1; }
+.math::before         { background: #06b6d4; opacity: 1; }
+.concat::before       { background: #8b5cf6; opacity: 1; }
+.http::before         { background: #f97316; opacity: 1; }
+.debug::before        { background: #94a3b8; opacity: 1; }
+
+.node-drag-icon {
+  font-size: 15px;
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.toolbar-divider {
+  height: 1px;
+  background: #1e293b;
+  margin: 8px 0;
+}
+
+/* Scrollbar */
+.toolbar-container::-webkit-scrollbar { width: 4px; }
+.toolbar-container::-webkit-scrollbar-track { background: transparent; }
+.toolbar-container::-webkit-scrollbar-thumb { background: #334155; border-radius: 2px; }
